@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public enum PaymentType
 {
@@ -22,7 +23,7 @@ public class Coffee
 
 public class Payment
 {
-    public PaymentType Type { get; private set; }
+    public PaymentType Type { get; set; }
 
     public Payment(PaymentType type)
     {
@@ -42,16 +43,22 @@ public class GOVR : MonoBehaviour
     
     private void Awake()
     {
-        coffees.Add("아메리카노", new Coffee("아메리카노", 1500, 500));
-        coffees.Add("카푸치노",  new Coffee("카푸치노", 2700, 1000));
-        coffees.Add("카페모카",  new Coffee("카페모카", 3700, 1200));
-        coffees.Add("콜드브루",  new Coffee("콜드브루", 3300, 1000));
-        coffees.Add("아이스티",  new Coffee("아이스티", 3000, 800));
-        coffees.Add("에이드",    new Coffee("에이드", 3500, 1300));
-        coffees.Add("카페라떼",  new Coffee("카페라떼", 2700, 1100));
-        coffees.Add("메가초코",  new Coffee("메가초코", 3800, 1500));
-        coffees.Add("딸기바나나", new Coffee("딸기바나나", 3800, 1700));
-        coffees.Add("퐁크러쉬",  new Coffee("퐁크러쉬", 3900, 1400));
+        LoadCoffess();
+    }
+    
+    private void LoadCoffess()
+    {
+        TextAsset jsonText = Resources.Load<TextAsset>("coffees");
+        if (jsonText == null)
+        {
+            return;
+        }
+
+        List<Coffee> coffeeList = JsonConvert.DeserializeObject<List<Coffee>>(jsonText.text);
+        foreach (var coffee in coffeeList)
+        {
+            coffees[coffee.Name] = coffee;
+        }
     }
 
     public Coffee GetRandomCoffee()
