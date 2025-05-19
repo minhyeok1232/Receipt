@@ -132,6 +132,26 @@
 <details>
   <summary> 객체지향의 원칙 </summary>
 
+### 1️⃣ 단일 책임 원칙(SRP)
+![image](https://github.com/user-attachments/assets/55eb2383-852d-4d78-8b58-717232df5b6b)
+- 이외에도, 작성한 모든 클래스에서 하나의 기능만 담당하였습니다.
+
+### 2️⃣ 개방-폐쇄 원칙(OCP)
+![image](https://github.com/user-attachments/assets/78265c06-519b-454e-844f-0d0202b8e590)
+- 새로운 오브젝트에 동일한 인터페이스 메소드(GetRandom)을 구현할 때, 클래스만 추가할 수 있도록 설계하였습니다.
+
+### 3️⃣ 리스코프 치환 원칙(LSP)
+![image](https://github.com/user-attachments/assets/7b3be15d-5d01-40d7-8be8-95128c287942)
+- RandomCoffeeProvider, RandomPaymentProvider는 각각 부모 타입(IRandomProvider<T>)으로 치환하여 동작 할 수 있습니다.
+
+### 4️⃣ 인터페이스 분리 원칙(ISP)
+![image](https://github.com/user-attachments/assets/3a0bd01d-0f7f-49e8-8ee2-ffed456c0d64)
+- 오브젝트들이 공통적으로 사용되는 필요한 기능만 제공하였습니다.
+
+### 5️⃣ 의존 역전 원칙(DIP)
+![image](https://github.com/user-attachments/assets/d067215b-4710-45dc-b46e-c789195f1ef1)
+- coffeeProvider와 paymentProvider은 해당 Class에 직접 참조하지 않고 상위 요소인 인터페이스로 참조하여, 코드의 변화를 최소화 하였습니다. 
+
 </details>
 
 ---
