@@ -38,22 +38,33 @@
 ---
 
 ## ⚙️ 클래스 구조 및 설명
+### 클래스 구조
 
-Assets/
-└── Scripts/
+<details>
+  <summary> 클래스 구조 </summary>
+    
+ Assets/
+  └── Scripts/
     ├── 1. Interfaces/
-    │   └── IRandomProvider.cs
+    │     └── IRandomProvider.cs
     ├── 2. Enums/
-    │   └── PaymentType.cs
+    │     └── PaymentType.cs
     ├── 3. Objects/
-    │   └── Coffee.cs
-    │   └── Payment.cs
-    ├── 4. Providers/
-    │   └── RandomCoffeeProvider.cs
-    │   └── RandomPaymentProvider.cs
-    ├── 5. Systems/
-    │   └── GOVR.cs
-    │   └── Receipts.cs
+    │     ├── Coffee.cs
+    │     └── Payment.cs
+    ├── 4. Providers
+    │     ├── RandomCoffeeProvider.cs
+    │     └── RandomPaymentProvider.cs
+    └── 5. Systems/
+    │     ├── GOVR.cs
+    │     └── Receipts.cs 
+
+</details>
+
+### 클래스 설명
+
+<details>
+  <summary> 클래스 설명 </summary>
 
 ### 1️⃣ Interface
 #### IRandomProvider<T> 인터페이스 (1. Interfaces/IRandomProvider.cs)
@@ -88,9 +99,14 @@ Assets/
 - 영수증 형태로 로그 출력
 - 총 수익 계산
 
+</details>
+
 ---
 
 ## 💵 객체지향적 사고 관점 설명
+### 객체지향의 특징
+<details>
+  <summary> 객체지향의 특징 </summary>
 
 ### 1️⃣ `캡슐화'
 ![image](https://github.com/user-attachments/assets/ce5ac71e-5382-4258-b666-fdcf526bf01f)
@@ -109,6 +125,13 @@ Assets/
 ![image](https://github.com/user-attachments/assets/f69ccf9d-8e93-46e0-946c-6bb2bc69f004)
 - 서로 다른 클래스를 동일한 방식(GetRandom())으로 사용할 수 있게 구성하였습니다.
 
+</details>
+
+### 객체지향의 원칙
+<details>
+  <summary> 객체지향의 원칙 </summary>
+
+</details>
 
 ---
 
