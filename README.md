@@ -7,10 +7,9 @@
 1. [🔎 프로젝트 소개](#-프로젝트-소개)  
 2. [📅 개발 기간](#-개발-기간)  
 3. [🧑‍💻 개발 환경 및 기술 스택](#-개발-환경-및-기술-스택)  
-4. [⚙️ 핵심 클래스 설명](#-핵심-클래스-설명)  
+4. [⚙️ 클래스 구조 및 설명](#-클래스-구조-및-설명)  
 5. [💵 객체지향적 사고 관점 설명](#-객체지향적-사고-관점-설명)  
-6. [🛠 개선 사항](#-개선-사항)
-7. [📸 실행 화면](#-실행-화면)
+6. [📸 실행 화면](#-실행-화면)
 
 ---
 
@@ -38,36 +37,84 @@
 
 ---
 
-## ⚙️ 핵심 클래스 설명
+## ⚙️ 클래스 구조 및 설명
 
-### 1️⃣ `Coffee` 클래스
-- 속성: 이름, 가격, 원가
+Assets/
+└── Scripts/
+    ├── 1. Interfaces/
+    │   └── IRandomProvider.cs
+    ├── 2. Enums/
+    │   └── PaymentType.cs
+    ├── 3. Objects/
+    │   └── Coffee.cs
+    │   └── Payment.cs
+    ├── 4. Providers/
+    │   └── RandomCoffeeProvider.cs
+    │   └── RandomPaymentProvider.cs
+    ├── 5. Systems/
+    │   └── GOVR.cs
+    │   └── Receipts.cs
 
-### 2️⃣ `Payment` 클래스
-- 속성: 결제 방식 (현금/카드)
+### 1️⃣ Interface
+#### IRandomProvider<T> 인터페이스 (1. Interfaces/IRandomProvider.cs)
+- 랜덤 객체 생성 인터페이스
 
-### 3️⃣ `Receipt` 클래스
-- 기능: 주문 20건을 처리하고 영수증 출력
+### 2️⃣ Enums
+#### PaymentType 열거형 (2. Enums/PaymentType.cs)
+- 결제 수단을 열거형으로 정의
 
-### 4️⃣ `GOVR` 클래스
-- 기능: 커피 데이터 로딩 관리
+### 3️⃣ Objects
+#### Coffee 클래스 (3. Objects/Coffee.cs)
+- 커피 객체를 정의
+  
+#### Payment 클래스 (3. Objects/Payment.cs)
+- 결제 방식 정보를 담는 객체
+
+### 4️⃣ Providers
+#### RandomCoffeeProvider 클래스 (4. Providers/RandomCoffeeProvider.cs)
+- 커피 객체 중 하나를 무작위로 반환
+
+#### RandomPaymentProvider 클래스 (4. Providers/RandomPaymentProvider.cs)
+- 무작위 결제 수단을 생성하여 반환
+
+### 5️⃣ Systems
+#### GOVR 클래스 (5. Systems/GOVR.cs)
+- 커피 JSON(Newtonsoft) 데이터 로딩
+- 각 오브젝트의(Coffee, Payment) 랜덤 메소드 반환 
+
+#### Receipts 클래스 (5. Systems/Receipts.cs)
+- 20회 주문을 수행
+- 무작위 커피 및 결제 수단 생성
+- 영수증 형태로 로그 출력
+- 총 수익 계산
 
 ---
 
 ## 💵 객체지향적 사고 관점 설명
 
+### 1️⃣ `캡슐화'
+![image](https://github.com/user-attachments/assets/ce5ac71e-5382-4258-b666-fdcf526bf01f)
+- GOVR.cs에서 생성된 커피와 결제 정보는 Receipts.cs에서 읽기만 하도록 설계하였습니다.
+- 외부(Receipts.cs)에서 객체의 상태가 변경되지 않도록 set을 private으로 제한하여 정보 은닉을 강화하였습니다.
 
----
+### 2️⃣ `추상화`
+![image](https://github.com/user-attachments/assets/9e11a619-8564-4dbb-aeea-ab813b84d38e)
+- 각 오브젝트(Coffee, Payment)는 랜덤 생성 가능한 객체 라는 공통된 특성을 IRandomProvider<T>로 추상화하여, 동일한 방식으로 사용할 수 있도록 구조화하였습니다.
 
-## 🛠 개선 사항
+### 3️⃣ '상속성'
+![image](https://github.com/user-attachments/assets/78265c06-519b-454e-844f-0d0202b8e590)
+- RandomCoffeeProvider와 RandomPaymentProvider는 각각 IRandomProvider<T>를 상속한 구조로 구성하였습니다.
+
+### 4️⃣ '다형성'
+![image](https://github.com/user-attachments/assets/f69ccf9d-8e93-46e0-946c-6bb2bc69f004)
+- 서로 다른 클래스를 동일한 방식(GetRandom())으로 사용할 수 있게 구성하였습니다.
+
 
 ---
 
 ## 📸 실행 화면
+![image](https://github.com/user-attachments/assets/8bf5289b-4b0c-4231-b103-6e762160c6b4)
 
-- ✅ 기능 단위 클래스로 객체 분리하여 OOP 원칙 실천
-- 🔄 메뉴, 주문, 수익계산 기능을 좀 더 모듈화 가능
-- 📝 향후 GUI 기반 영수증 출력 및 주문 시뮬레이터로 확장 가능
 
 
 ---
