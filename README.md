@@ -44,20 +44,20 @@
   <summary> 클래스 구조 </summary>
     
  Assets/
-  └── Scripts/
-    ├── 1. Interfaces/
-    │     └── IRandomProvider.cs
-    ├── 2. Enums/
-    │     └── PaymentType.cs
-    ├── 3. Objects/
-    │     ├── Coffee.cs
-    │     └── Payment.cs
-    ├── 4. Providers
-    │     ├── RandomCoffeeProvider.cs
-    │     └── RandomPaymentProvider.cs
-    └── 5. Systems/
-    │     ├── GOVR.cs
-    │     └── Receipts.cs 
+   └── Scripts/
+     ├── 1. Interfaces/
+     │     └── IRandomProvider.cs
+     ├── 2. Enums/
+     │     └── PaymentType.cs
+     ├── 3. Objects/
+     │     ├── Coffee.cs
+     │     └── Payment.cs
+     ├── 4. Providers
+     │     ├── RandomCoffeeProvider.cs
+     │     └── RandomPaymentProvider.cs
+     └── 5. Systems/
+     │     ├── GOVR.cs
+     │     └── Receipts.cs 
 
 </details>
 
